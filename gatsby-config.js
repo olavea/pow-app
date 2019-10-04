@@ -12,6 +12,7 @@ module.exports = {
     image: "https://www.usepow.app/static/some.png",
   },
   plugins: [
+    `gatsby-plugin-stripe`,
     {
       resolve: `gatsby-plugin-material-ui`,
     },
