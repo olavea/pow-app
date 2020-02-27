@@ -25,13 +25,27 @@ const useStyles = makeStyles((theme) => ({
 
 const Profile = ({ user }) => {
   const classes = useStyles()
-
-  const [state, setState] = useState({
-    email: "",
-    rememberMe: "local",
-  })
-
   if (!user) return null
+  // const [state, setState] = useState({
+  //   email: "",
+  //   rememberMe: "local",
+  // })
+
+  // const handleChange = (event) => {
+  //   setState({ value: event.target.value })
+  // }
+  const handleChange = (name) => (event) => {
+    let value = event.target.value
+    if (name === "rememberMe") {
+      value = event.target.checked ? "local" : "session"
+    }
+  }
+
+  const handleSubmit = (event) => {
+    alert("An email was submitted: ")
+    event.preventDefault()
+    console.log("email is submitted")
+  }
 
   return (
     <>
@@ -43,10 +57,10 @@ const Profile = ({ user }) => {
             </Typography>
             <Typography>
               <form
-              // className={classes.form}
-              // variant={signUp}
-              // noValidate
-              // onSubmit={handleSubmit}
+                // className={classes.form}
+                // variant={signUp}
+                // noValidate
+                onSubmit={handleSubmit}
               >
                 <TextField
                   variant="outlined"
