@@ -12,7 +12,7 @@ const AuthProvider = ({ children, appId }) => {
   useEffect(() => {
     dispatch({ type: "init" })
     userbase
-      .init({ appId })
+      .init({ appId: process.env.GATSBY_USERBASE_APP_ID })
       .then(({ user, lastUsedUsername }) => {
         dispatch({ type: "initFulfilled", user, lastUsedUsername })
       })

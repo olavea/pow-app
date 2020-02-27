@@ -1,12 +1,14 @@
 import React from "react"
 import {
   Link,
+  Button,
   Card,
   CardContent,
   CardHeader,
   Container,
   Typography,
   makeStyles,
+  TextField,
 } from "@material-ui/core"
 
 import MenstruationSettings from "./MenstruationSettings"
@@ -30,12 +32,53 @@ const Profile = ({ user }) => {
     <>
       <Container className={classes.container} maxWidth="sm">
         <Card>
+          <CardContent>
+            <Typography gutterBottom variant="h6" component="h2">
+              Stay in the loop
+            </Typography>
+            <Typography>
+              <form
+              // className={classes.form}
+              // variant={signUp}
+              // noValidate
+              // onSubmit={handleSubmit}
+              >
+                <TextField
+                  variant="outlined"
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="email"
+                  label="Email"
+                  name="email"
+                  autoComplete="email"
+                  placeholder="ruby@rooftop.aero"
+                  // value={state.username}
+                  // onChange={handleChange("username")}
+                  InputLabelProps={{ shrink: true }}
+                />
+                <Button>❤️</Button>
+              </form>
+            </Typography>
+            <Typography gutterBottom variant="body1">
+              Sign up for the POW! Newsletter
+            </Typography>
+            <Typography gutterBottom variant="body2" color="textSecondary">
+              We send you off to another site to sign up. Your Blockstack id is
+              not forwarded and not be linked to the e-mail you submit.
+            </Typography>
+          </CardContent>
+        </Card>
+      </Container>
+      <Container className={classes.container} maxWidth="sm">
+        <Card>
           <CardHeader title={user.username} />
         </Card>
       </Container>
       <Container className={classes.container} maxWidth="sm">
         <MenstruationSettings />
       </Container>
+
       <Container className={classes.container} maxWidth="sm">
         <Card>
           <CardContent>
