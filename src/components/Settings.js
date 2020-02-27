@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import {
   Link,
   Button,
@@ -25,6 +25,11 @@ const useStyles = makeStyles((theme) => ({
 
 const Profile = ({ user }) => {
   const classes = useStyles()
+
+  const [state, setState] = useState({
+    email: "",
+    rememberMe: "local",
+  })
 
   if (!user) return null
 
@@ -53,10 +58,11 @@ const Profile = ({ user }) => {
                   name="email"
                   autoComplete="email"
                   placeholder="ruby@rooftop.aero"
-                  // value={state.username}
-                  // onChange={handleChange("username")}
+                  // value={state.email}
+                  // onChange={handleChange("email")}
                   InputLabelProps={{ shrink: true }}
                 />
+                <input type="submit" value="❤️" />
                 <Button>❤️</Button>
               </form>
             </Typography>
